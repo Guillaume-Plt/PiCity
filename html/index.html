@@ -2,20 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <title>Site de photos</title>
     <script type="text/javascript" src="http://infoweb-ens/~jacquin-c/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="../javascript/script.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
   <body>
-    <input list="listeCommunes" type="text" name="commune" id="champsSaisie" value="" placeholder="Nom d'une commune..." autocomplete="off">
+    <input list="listeCommunes" type="text" name="commune" id="champsSaisie" value="" placeholder="Nom d'une commune..." autocomplete="off"/>
     <datalist id="listeCommunes"></datalist>
-    <input type="submit" id="soumission" name="name" value="CLICKEZ">
+    <input type="submit" id="soumission" name="name" value="CLICKEZ"/>
     <br>
-    <div id="slider"></div>
+    Nombre de résultats :
+    1<input id="nbPhotos" type="range" min="1" max="10" step="1" />10
     <br>
     <div id="images" style="height: 300px"></div>
-<script>
-</script>
   </body>
 </html>

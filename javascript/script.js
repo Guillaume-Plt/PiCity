@@ -20,17 +20,13 @@ $(document).ready(function(){
     success:function(data){
     $.each(data.items, function(i,item){
                 $("<img/>").attr("src", item.media.m).appendTo("#images");
-                if ( i == 6 ) return false ; });
+                if ( i == $("#nbPhotos").val()-1 ) return false ; });
               },
     error: function(resultat,statut,erreur){
     alert("erreur");},
      });
   });
 
-  $("#slider").slider({
-    max:5,
-    min:0
-  });
 
 
 
