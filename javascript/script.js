@@ -28,7 +28,17 @@ $(document).ready(function(){
   });
 
 
-
-
-
+  console.log("ya");
+  $("#nbPhotos").on("change",function(){
+    var val = $("#nbPhotos").val();
+    $("#curseur").text(val);
+    var calc = -((11-val)*4)+"vh";
+    $("#curseur").css("margin-left",calc);
+  });
+  $("#nbPhotos").on("keyup",function(){
+    var val = $("#nbPhotos").val();
+    $("#curseur").text(val);
+    var calc = -((11-val)*4)+"vh";
+    $("#curseur").css("margin-left",calc);
+  });
 });
