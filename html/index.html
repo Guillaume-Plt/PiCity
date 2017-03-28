@@ -3,18 +3,50 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <title>Site de photos</title>
+    <link rel="stylesheet" href="../Css/swag.css">
+    <link rel="stylesheet" href="../javascript/jquery-ui-1.12.1/jquery-ui.min.css">
+    <script src="../javascript/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script src="../javascript/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+     
     <script type="text/javascript" src="http://infoweb-ens/~jacquin-c/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="../javascript/script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
+    <title>Site de photos</title>
+      <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
   </head>
   <body>
+    
+
+    <div id="menuSup">
     <input list="listeCommunes" type="text" name="commune" id="champsSaisie" value="" placeholder="Nom d'une commune..." autocomplete="off"/>
     <datalist id="listeCommunes"></datalist>
-    <input type="submit" id="soumission" name="name" value="CLICKEZ"/>
+    <span class=" ui-icon ui-icon-circle-zoomout" type="submit" id="soumission"></span>
+    
+    1<input id="nbPhotos" type="range" min="1" max="100" step="1"/>100
     <br>
-    Nombre de résultats :
-    1<input id="nbPhotos" type="range" min="1" max="10" step="1" />10
-    <br>
-    <div id="images" style="height: 300px"></div>
+    </div>
+
+    <div id="tabs">
+  <ul>
+    <li><a href="#liste">Liste</a></li>
+    <li><a href="#tableau">Tableau</a></li>
+  </ul>
+
+  <div id="liste">
+    <div id="imagesL" style="height: 300px"></div>
+  </div>
+
+  <div id="tableau">
+    <div id="imagesT" style="height: 300px"></div>
+  </div>
+
+</div>
+    <div id="modal"></div>
   </body>
 </html>
