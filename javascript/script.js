@@ -1,5 +1,7 @@
 $(document).ready(function(){
-  $("#champsSaisie").on("keyup",function(){
+  var api_key ="58967d508ad68202652256f3bd56fba5";
+
+  $("#champsSaisie").on("input",function(){
     $("#listeCommunes").empty();
     $.getJSON("http://infoweb-ens/~jacquin-c/codePostal/commune.php?commune="+$("#champsSaisie").val()+"&maxRows=5", function(data){
         for (var i in data) {
@@ -7,19 +9,27 @@ $(document).ready(function(){
         }
       });
   });
-
+  $("#modal").dialog({
+                 autoOpen: false,
+              });
 
   $("#soumission").on("click",function(){
     $("#images").empty();
     $.ajax({
-    url:'http://api.flickr.com/services/feeds/photos_public.gne',
+    url:'https://api.flickr.com/services/rest/',
     type:'GET',
-    dataType:'jsonp',
-    jsonp: 'jsoncallback', // a renseigner d'après la doc du service, par défaut callback
-    data:'tags='+$("#champsSaisie").val()+'&tagmode=any&format=json',
+    dataType:'json',
+    data:'method=flickr.photos.search&nojsoncallback=1&safe_search=1&tags='+$("#champsSaisie").val()+'&format=json&api_key='+api_key,
     success:function(data){
-    $.each(data.items, function(i,item){
-                $("<img/>").attr("src", item.media.m).appendTo("#images");
+    $.each(data.photos.photo, function(i,item){
+                $("<img/>").attr("src",
+                "https://farm"+item.farm+".staticflickr.com/"+item.server+"/"+item.id+"_"+item.secret+"_b.jpg"
+              ).attr("height","150px").attr("padding-top","5px").attr("padding-right","5px").attr("id",item.id)
+              .attr("secret",item.secret).attr("class","pictureL").click(details).appendTo("#imagesL");
+              $("<img/>").attr("src",
+              "https://farm"+item.farm+".staticflickr.com/"+item.server+"/"+item.id+"_"+item.secret+"_b.jpg"
+            ).attr("height","150px").attr("padding-top","5px").attr("padding-right","5px").attr("id",item.id)
+            .attr("secret",item.secret).attr("class","pictureT").click(details).appendTo("#imagesT");
                 if ( i == $("#nbPhotos").val()-1 ) return false ; });
               },
     error: function(resultat,statut,erreur){
@@ -27,18 +37,20 @@ $(document).ready(function(){
      });
   });
 
+function details(){
+  $("#modal").empty();
+  $("#modal").append("<img/>").attr("src",$(this).attr("src"));
+  $.getJSON(
+    "https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key="+api_key+"&format=json&nojsoncallback=1&photo_id="+$(this).attr("id")+"&secret="+$(this).attr("secret")
+    ).done(function(data){
+      $("#modal").append("<div>Auteur : "+data.photo.owner.realname+" aka : "+data.photo.owner.username+" originaire de :"+data.photo.owner.location+"</div>")
+    }).fail(function(oldRequest,text,error){
+    });
+  $("#modal").dialog("open");
+}
 
-  console.log("ya");
-  $("#nbPhotos").on("change",function(){
+  $("#nbPhotos").on("input",function(){
     var val = $("#nbPhotos").val();
     $("#curseur").text(val);
-    var calc = -((11-val)*4)+"vh";
-    $("#curseur").css("margin-left",calc);
-  });
-  $("#nbPhotos").on("keyup",function(){
-    var val = $("#nbPhotos").val();
-    $("#curseur").text(val);
-    var calc = -((11-val)*4)+"vh";
-    $("#curseur").css("margin-left",calc);
   });
 });

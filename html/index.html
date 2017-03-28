@@ -2,21 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8">
-<<<<<<< HEAD
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="../Css/swag.css">
     <link rel="stylesheet" href="../javascript/jquery-ui-1.12.1/jquery-ui.min.css">
-    <script src="../javascript/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
-    <script src="../javascript/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-     
-=======
-    <title>Site de photos</title>
->>>>>>> 146446d62f1dcc52d1c58e85170e6d66ef9f71d1
-    <script type="text/javascript" src="http://infoweb-ens/~jacquin-c/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="../javascript/script.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
+
+
+
     <title>Site de photos</title>
       <script>
   $( function() {
@@ -25,26 +21,17 @@
   </script>
   </head>
   <body>
-    
+
 
     <div id="menuSup">
     <input list="listeCommunes" type="text" name="commune" id="champsSaisie" value="" placeholder="Nom d'une commune..." autocomplete="off"/>
     <datalist id="listeCommunes"></datalist>
-<<<<<<< HEAD
     <span class=" ui-icon ui-icon-circle-zoomout" type="submit" id="soumission"></span>
-    
-    1<input id="nbPhotos" type="range" min="1" max="100" step="1"/>100
-=======
+
+    <input id="nbPhotos" type="range" min="1" max="100" val="50" step="1"/>
+    <span id ="curseur"></span>
     <input type="submit" id="soumission" name="name" value="CLICKEZ"/>
     <br>
-    Nombre de résultats :
-    <div >
-      1<input id="nbPhotos" type="range" min="1" max="10" step="1" style="width:40vh"/>
-      <span id="curseur" style="text-align:center;position:absolute;margin-top:15px"></span>
-      10
-    </div>
-
->>>>>>> 146446d62f1dcc52d1c58e85170e6d66ef9f71d1
     <br>
     </div>
 
