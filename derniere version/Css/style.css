@@ -1,0 +1,54 @@
+body{
+	margin:0;
+}
+
+#menuSup{
+	width:100%;
+	height:10vh;
+	background-color: blue;
+	display: inline-block;
+}
+
+#champsSaisie{
+	width:30%;
+	height:20px;
+	margin:5px;
+	padding:5px;
+}
+
+#soumission{
+	width:5vw;
+	height:5vw;
+	cursor:pointer;
+	background-image:url(search.jpeg);
+	background-size: cover;
+	float: left;
+	
+}
+
+#nbPhotos{
+	float: left;
+}
+
+#champsSaisie{
+	float: left;
+}
+
+.pictureT{
+	padding:0.4vw;
+	max-width:24%;
+	height: auto;
+}
+
+.pictureL{
+	padding:0.4vw;
+	max-width:24%;
+	height: auto;
+}
+
+
+
+#titre{
+	color: white;
+	font-size: auto;
+}
